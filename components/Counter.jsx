@@ -10,13 +10,13 @@ const CounterApp = () => {
   const handleAddCount = () => {
     const value = parseInt(document.getElementById("value").value);
     setCounter(counter + value);
-    setHistory([...history, `Added ${value}`]);
+    setHistory([...history, { operation: "Added", value: value }]);
   };
 
   const handleSubtractCount = () => {
     const value = parseInt(document.getElementById("value").value);
     setCounter(counter - value);
-    setHistory([...history, `Substracted ${value}`]);
+    setHistory([...history, { operation: "Substracted", value: value }]);
   };
 
   return (
@@ -36,8 +36,13 @@ const CounterApp = () => {
         <h2>History</h2>
         <ul className={styles.list}>
           {history.map((item, index) => (
-            <li key={index}>
-              <span>{item}</span>
+            <li
+              key={index}
+              className={
+                item.operation === "Added" ? styles.added : styles.subtracted
+              }
+            >
+              <span>{`${item.operation}: ${item.value}`}</span>
             </li>
           ))}
         </ul>

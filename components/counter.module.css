@@ -65,6 +65,7 @@
     height: 35px;
     display: flex;
     align-items: center;
+    font-weight: 500;
     margin: 1rem 0;
     cursor: pointer;
     padding: 1rem;
@@ -73,6 +74,18 @@
     color: white;
     border-radius: 5px;
   }
+ 
+
+.list li.added {
+    background-color: #28a745; 
+    color: #fff; 
+  }
+  
+  .list li.subtracted {
+    background-color: #dc3545;
+    color: #fff; 
+  }
+  
   
   /* Media queries for responsiveness */
   @media screen and (max-width: 768px) {
